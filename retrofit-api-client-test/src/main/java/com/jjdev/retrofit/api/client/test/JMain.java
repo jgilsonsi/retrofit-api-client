@@ -1,6 +1,6 @@
 package com.jjdev.retrofit.api.client.test;
 
-import com.jjdev.retrofit.api.client.json.JUser;
+import com.jjdev.retrofit.api.client.model.JUser;
 import com.jjdev.retrofit.api.client.sync.controller.JUserApiController;
 import java.util.LinkedList;
 

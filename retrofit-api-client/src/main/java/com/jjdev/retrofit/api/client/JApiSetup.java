@@ -21,6 +21,7 @@ public class JApiSetup {
                     Request original = chain.request();
 
                     Request.Builder requestBuilder = original.newBuilder()
+                            .header("Accept", "application/json")
                             .method(original.method(), original.body());
 
                     Request request = requestBuilder.build();
@@ -36,4 +37,5 @@ public class JApiSetup {
 
         return client;
     }
+
 }

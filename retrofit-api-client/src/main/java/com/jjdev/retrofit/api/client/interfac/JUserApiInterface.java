@@ -1,7 +1,7 @@
-package com.jjdev.retrofit.api.client.mapping;
+package com.jjdev.retrofit.api.client.interfac;
 
 import com.jjdev.retrofit.api.client.JApiSetup;
-import com.jjdev.retrofit.api.client.json.JUser;
+import com.jjdev.retrofit.api.client.model.JUser;
 import java.util.LinkedList;
 import okhttp3.ResponseBody;
 
@@ -15,16 +15,16 @@ import retrofit2.http.Query;
 
 public class JUserApiInterface {
 
-    private static UserApiInterface userApiInterface;
+    private static IUserApiInterface userApiInterface;
 
-    public static UserApiInterface getBrandApiClient() {
+    public static IUserApiInterface getUserApiClient() {
         if (userApiInterface == null) {
-            userApiInterface = JApiSetup.getApiClient().create(UserApiInterface.class);
+            userApiInterface = JApiSetup.getApiClient().create(IUserApiInterface.class);
         }
         return userApiInterface;
     }
 
-    public interface UserApiInterface {
+    public interface IUserApiInterface {
 
         @POST("api/Users")
         Call<JUser> create(@Body JUser user);

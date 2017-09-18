@@ -1,4 +1,4 @@
-package com.jjdev.retrofit.api.client.json;
+package com.jjdev.retrofit.api.client.model;
 
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
@@ -8,6 +8,8 @@ import java.io.Serializable;
  * @author jgilson
  */
 public class JUser implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
 
     @SerializedName("ID")
     private Integer id;

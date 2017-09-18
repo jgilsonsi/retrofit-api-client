@@ -1,48 +1,48 @@
 package com.jjdev.retrofit.api.client.sync.controller;
 
-import com.jjdev.retrofit.api.client.model.JUser;
-import com.jjdev.retrofit.api.client.interfac.JUserApiInterface;
+import com.jjdev.retrofit.api.client.interfac.JBookApiInterface;
+import com.jjdev.retrofit.api.client.model.JBook;
 import java.io.IOException;
 import java.util.LinkedList;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class JUserApiController {
+public class JBookApiController {
 
-    private final JUserApiInterface.IUserApiInterface serviceApi;
+    private final JBookApiInterface.IBookApiInterface serviceApi;
     private String errorMessage;
 
-    public JUserApiController() {
-        serviceApi = JUserApiInterface.getUserApiClient();
+    public JBookApiController() {
+        serviceApi = JBookApiInterface.getBookApiClient();
     }
 
     public String getErrorMessage() {
         return errorMessage;
     }
 
-    public JUser create(JUser user) {
+    public JBook create(JBook book) {
 
-        Call<JUser> call = serviceApi.create(user);
+        Call<JBook> call = serviceApi.create(book);
         try {
-            Response<JUser> response = call.execute();
+            Response<JBook> response = call.execute();
             if (response != null && response.code() == 200) {
-                user = response.body();
+                book = response.body();
             }
         } catch (IOException ex) {
             errorMessage = ex.getMessage();
         }
 
-        return user;
+        return book;
     }
 
-    public LinkedList<JUser> readAll() {
+    public LinkedList<JBook> readAll() {
 
-        LinkedList<JUser> list = null;
+        LinkedList<JBook> list = null;
 
-        Call<LinkedList<JUser>> call = serviceApi.readAll();
+        Call<LinkedList<JBook>> call = serviceApi.readAll();
         try {
-            Response<LinkedList<JUser>> response = call.execute();
+            Response<LinkedList<JBook>> response = call.execute();
             if (response != null && response.code() == 200) {
                 list = response.body();
             }
@@ -53,45 +53,45 @@ public class JUserApiController {
         return list;
     }
 
-    public JUser read(Integer id) {
+    public JBook read(Integer id) {
 
-        JUser user = null;
+        JBook book = null;
 
-        Call<JUser> call = serviceApi.read(id);
+        Call<JBook> call = serviceApi.read(id);
         try {
-            Response<JUser> response = call.execute();
+            Response<JBook> response = call.execute();
             if (response != null && response.code() == 200) {
-                user = response.body();
+                book = response.body();
             }
         } catch (IOException ex) {
             errorMessage = ex.getMessage();
         }
 
-        return user;
+        return book;
     }
 
-    public JUser update(JUser user) {
+    public JBook update(JBook book) {
 
-        Call<JUser> call = serviceApi.update(user);
+        Call<JBook> call = serviceApi.update(book);
         try {
-            Response<JUser> response = call.execute();
+            Response<JBook> response = call.execute();
             if (response != null && response.code() == 200) {
-                user = response.body();
+                book = response.body();
             }
         } catch (IOException ex) {
             errorMessage = ex.getMessage();
         }
 
-        return user;
+        return book;
     }
 
-    public JUser delete(JUser user) {
+    public JBook delete(JBook book) {
 
-        Call<ResponseBody> call = serviceApi.delete(user.getId());
+        Call<ResponseBody> call = serviceApi.delete(book.getId());
         try {
             Response<ResponseBody> response = call.execute();
             if (response != null && response.code() == 200) {
-                return user;
+                return book;
             }
         } catch (IOException ex) {
             errorMessage = ex.getMessage();
