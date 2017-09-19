@@ -1,4 +1,4 @@
-package com.jjdev.retrofit.api.client.interfac;
+package com.jjdev.retrofit.api.client.endpoint;
 
 import com.jjdev.retrofit.api.client.JApiSetup;
 import com.jjdev.retrofit.api.client.model.JBook;
@@ -17,7 +17,7 @@ public class JBookApiInterface {
 
     private static IBookApiInterface bookApiInterface;
 
-    public static IBookApiInterface getBookApiClient() {
+        public static IBookApiInterface getBookApiClient() {
         if (bookApiInterface == null) {
             bookApiInterface = JApiSetup.getApiClient().create(IBookApiInterface.class);
         }

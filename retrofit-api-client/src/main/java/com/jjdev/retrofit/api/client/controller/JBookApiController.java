@@ -1,6 +1,6 @@
-package com.jjdev.retrofit.api.client.sync.controller;
+package com.jjdev.retrofit.api.client.controller;
 
-import com.jjdev.retrofit.api.client.interfac.JBookApiInterface;
+import com.jjdev.retrofit.api.client.endpoint.JBookApiInterface;
 import com.jjdev.retrofit.api.client.model.JBook;
 import java.io.IOException;
 import java.util.LinkedList;

@@ -1,4 +1,4 @@
-package com.jjdev.retrofit.api.client.interfac;
+package com.jjdev.retrofit.api.client.endpoint;
 
 import com.jjdev.retrofit.api.client.JApiSetup;
 import com.jjdev.retrofit.api.client.model.JUser;
@@ -36,7 +36,7 @@ public class JUserApiInterface {
         Call<LinkedList<JUser>> readAll();
 
         @PUT("api/Users")
-        Call<JUser> update(@Body JUser user);
+        Call<JUser> update(@Query("id") Integer id, @Body JUser user);
 
         @DELETE("api/Users")
         Call<ResponseBody> delete(@Query("id") Integer id);
